@@ -8,16 +8,15 @@ LOCAL_SRC_FILES:= \
 
 
 LOCAL_SHARED_LIBRARIES := \
+	liblog \
 	libcutils \
-	libril
-
-ifeq ($(TARGET_ARCH),arm)
-LOCAL_SHARED_LIBRARIES += libdl
-endif # arm
+	libril \
+	libdl
 
 LOCAL_CFLAGS := -DRIL_SHLIB
 
 LOCAL_MODULE:= rild
+LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_EXECUTABLE)
 
@@ -29,6 +28,7 @@ LOCAL_SRC_FILES:= \
 	radiooptions.c
 
 LOCAL_SHARED_LIBRARIES := \
+	liblog \
 	libcutils \
 
 LOCAL_CFLAGS := \
